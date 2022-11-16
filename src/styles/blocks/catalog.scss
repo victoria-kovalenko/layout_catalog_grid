@@ -15,7 +15,7 @@
   }
 
   @each $width,
-  $count in $screen-width {
+    $count in $screen-width {
     @media (min-width: #{$width}) {
       grid-template-columns: repeat(#{$count}, $card-width);
     }
