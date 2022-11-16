@@ -3,8 +3,6 @@
   justify-content: center;
   grid-template-columns: repeat(4, auto);
   gap: 48px;
-  max-width: 944px;
-  margin: 0 auto;
 
   &__card {
     display: grid;
@@ -16,15 +14,10 @@
     border-radius: 5px;
   }
 
-  @media (max-width: 1023px) {
-    grid-template-columns: repeat(3, $card-width);
-  }
-
-  @media (max-width: 767px) {
-    grid-template-columns: repeat(2, $card-width);
-  }
-
-  @media (max-width: 488px) {
-    grid-template-columns: repeat(1, $card-width);
+  @each $width,
+  $count in $screen-width {
+    @media (min-width: #{$width}) {
+      grid-template-columns: repeat(#{$count}, $card-width);
+    }
   }
 }
